@@ -1,0 +1,18 @@
+---
+import { Image } from '@astrojs/image/components'
+import Logo from '../assets/shared/logo.svg'
+import Container from './Container.astro'
+---
+
+<header>
+  <Container className="flex justify-between border-b-[1px] border-grey">
+    <Image
+      class="w-[113px] h-[32px] lg:w-[170px] lg:h-[48px]"
+      src={Logo}
+      alt="Logo"
+    />
+    <button class="text-link-2 lg:text-link-1 text-darkGrey"
+      >START SLIDESHOW</button
+    >
+  </Container>
+</header>

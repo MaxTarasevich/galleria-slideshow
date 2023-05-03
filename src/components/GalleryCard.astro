@@ -1,0 +1,27 @@
+---
+import { Image, Picture } from '@astrojs/image/components'
+
+interface Props {
+  name: string
+  artist: string
+  gallery: string
+}
+
+const { name, artist, gallery } = Astro.props
+
+const src = gallery.split('/')[3].split('.jpg')[0]
+const folder = gallery.split('/')[2]
+---
+
+<a href="#" class="relative">
+  <div class="absolute bottom-0 p-8 text-white">
+    <h2 class="text-heading-2">{name}</h2>
+    <h3 class="pt-1 opacity-75 text-subhead-2">{artist}</h3>
+  </div>
+  <Picture
+    src={import(`../assets/${folder}/${src}.jpg`)}
+    alt={name}
+    widths={[310, 324, 327]}
+    sizes="(max-width:640px) 327px,(max-width:1079px) 324px,(min-width:1080px) 310px"
+  />
+</a>
