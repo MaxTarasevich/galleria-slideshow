@@ -2,13 +2,37 @@
 import data from '../data/data.json'
 import Container from './Container.astro'
 import GalleryCard from './GalleryCard.astro'
+
+/*const galleryRows = [
+  50, 80, 57, 50, 68, 56, 100, 50, 84, 52, 105, 86, 52, 66, 68,
+]*/
+const galleryRows = [
+  'row-span-50 lg:col-start-1',
+  'row-span-80 lg:col-start-2',
+  'row-span-57 lg:col-start-3',
+  'row-span-50 lg:col-start-4',
+  'row-span-68 lg:col-start-1',
+  'row-span-56 lg:col-start-2',
+  'row-span-100 lg:col-start-3',
+  'row-span-50 lg:col-start-4',
+  'row-span-84 lg:col-start-1 sm:col-start-1',
+  'row-span-52 lg:col-start-2 sm:col-start-2',
+  'row-span-86 lg:col-start-4 sm:col-start-2',
+  'row-span-52 lg:col-start-1 sm:col-start-1',
+  'row-span-66 lg:col-start-2 sm:col-start-2',
+  'row-span-105 lg:col-start-3 sm:col-start-1',
+  'row-span-68 lg:col-start-4 sm:col-start-2',
+]
 ---
 
 <section>
-  <Container className="flex flex-wrap gap-10 max-h-[50vh] ">
+  <Container
+    className="pb-10 max-w-[327px] sm:max-w-full grid lg:grid-cols-4 sm:grid-cols-2 grid-rows-[5px] auto-rows-[5px] md:gap-x-10 gap-x-5 grid-flow-row-dense"
+  >
     {
-      data.map((card) => (
+      data.map((card, index) => (
         <GalleryCard
+          className={galleryRows[index]}
           artist={card.artist.name}
           gallery={card.images.gallery}
           name={card.name}
