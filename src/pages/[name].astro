@@ -34,12 +34,14 @@ const artistFolder = artist.image.split('/')[2]
           sizes="(max-width:640px) 327px,(min-width:640px) 475px"
         />
       </div>
-      <div class="xl:max-w-[445px]">
+      <div class="xl:max-w-[445px] sm:static relative">
         <div
           class="absolute desktop:left-[410px] xl:left-[27%] xl:top-24 sm:top-10 top-6 sm:right-10 pl-[65px] pb-[67px] max-w-[445px] bg-white z-10"
         >
-          <h1 class="text-heading-1 max-w-[315px]">{name}</h1>
-          <h3 class="mt-6 text-subhead-1 text-darkGrey">{artist.name}</h3>
+          <h1 class="sm:text-heading-1 text-heading-2 max-w-[315px]">{name}</h1>
+          <h3 class="sm:mt-6 mt-2 text-subhead-1 text-darkGrey">
+            {artist.name}
+          </h3>
           <div
             class="absolute xl:-bottom-96 sm:-bottom-32 xl:left-[42%] xl:right-auto md:right-12 right-1 desktop:left-[90px]"
           >
@@ -54,7 +56,7 @@ const artistFolder = artist.image.split('/')[2]
         </div>
 
         <div
-          class="absolute xl:top-24 sm:top-[670px] xl:right-0 xl:left-auto md:left-[12%] -z-10 sm:text-display text-lightGrey"
+          class="absolute xl:top-24 sm:top-[670px] xl:right-0 xl:left-auto md:left-[12%] sm:right-auto right-6 -z-10 sm:text-display text-displayMob text-lightGrey"
         >
           {year}
         </div>

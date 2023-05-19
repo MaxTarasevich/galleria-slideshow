@@ -19,6 +19,13 @@ module.exports = {
           fontWeight: '700',
         },
       ],
+      displayMob: [
+        '6.25rem',
+        {
+          lineHeight: '0.75',
+          fontWeight: '700',
+        },
+      ],
       'heading-1': [
         '3.5rem',
         {
