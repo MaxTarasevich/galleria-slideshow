@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro'
+import data from '../data/data.json'
+import Container from '../components/Container.astro'
+import { Picture } from '@astrojs/image/components'
+
+export function getStaticPaths() {
+  return data.map((item) => ({
+    params: { name: item.name.replaceAll(' ', '-').toLowerCase() },
+    props: item,
+  }))
+}
+
+const { name, year, description, source, artist, images } = Astro.props
+
+const src = images.gallery.split('/')[3].split('.jpg')[0]
+const folder = images.gallery.split('/')[2]
+
+const artistSrc = artist.image.split('/')[3].split('.jpg')[0]
+const artistFolder = artist.image.split('/')[2]
+---
+
+<Layout>
+  <main>
+    <Container
+      className="relative xl:pt-24 sm:pt-10 pt-6 flex flex-wrap xl:flex-row items-center flex-col sm:justify-between justify-center"
+    >
+      <div class="xl:self-auto sm:self-start xl:ml-0">
+        <Picture
+          class="xl:w-[475px] lg:w-[600px] sm:w-[475px] w-[327px] sm:h-[560px] h-[280px] object-cover"
+          src={import(`../assets/${folder}/${src}.jpg`)}
+          alt={name}
+          widths={[475, 327]}
+          sizes="(max-width:640px) 327px,(min-width:640px) 475px"
+        />
+      </div>
+      <div class="xl:max-w-[445px]">
+        <div
+          class="absolute desktop:left-[410px] xl:left-[27%] xl:top-24 sm:top-10 top-6 sm:right-10 pl-[65px] pb-[67px] max-w-[445px] bg-white z-10"
+        >
+          <h1 class="text-heading-1 max-w-[315px]">{name}</h1>
+          <h3 class="mt-6 text-subhead-1 text-darkGrey">{artist.name}</h3>
+          <div
+            class="absolute xl:-bottom-96 sm:-bottom-32 xl:left-[42%] xl:right-auto md:right-12 right-1 desktop:left-[90px]"
+          >
+            <Picture
+              class="w-16 sm:w-32 h-16 sm:h-32 object-cover"
+              src={import(`../assets/${artistFolder}/${artistSrc}.jpg`)}
+              alt={name}
+              widths={[475, 327]}
+              sizes="(max-width:640px) 327px,(min-width:640px) 475px"
+            />
+          </div>
+        </div>
+
+        <div
+          class="absolute xl:top-24 sm:top-[670px] xl:right-0 xl:left-auto md:left-[12%] -z-10 sm:text-display text-lightGrey"
+        >
+          {year}
+        </div>
+
+        <p
+          class="xl:mt-28 xl:mr-32 sm:mt-36 mt-40 xl:mb-20 sm:mb-10 mb-16 xl:max-w-[350px] sm:max-w-lg text-body text-darkGrey"
+        >
+          {description}
+        </p>
+        <a
+          class="text-link-2 text-darkGrey underline decoration-1 uppercase"
+          href={source}
+          target="_blank"
+          rel="noopener noreferrer">Go to sourse</a
+        >
+      </div>
+    </Container>
+  </main>
+  <footer class="py-10">params</footer>
+</Layout>

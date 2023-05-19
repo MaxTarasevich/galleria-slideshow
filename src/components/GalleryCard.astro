@@ -1,20 +1,21 @@
 ---
-import { Image, Picture } from '@astrojs/image/components'
+import {Picture } from '@astrojs/image/components'
 
 interface Props {
   name: string
   artist: string
   gallery: string
   className: string
+  link:string
 }
 
-const { name, artist, gallery, className } = Astro.props
+const { name, artist, gallery, className, link } = Astro.props
 
 const src = gallery.split('/')[3].split('.jpg')[0]
 const folder = gallery.split('/')[2]
 ---
 
-<a href="#" class={`relative md:mt-10 mt-6 ${className}`}>
+<a href={link} class={`relative md:mt-10 mt-6 ${className}`}>
   <div class="absolute bottom-0 p-8 max-w-[246px] text-white">
     <h2 class="text-heading-2">{name}</h2>
     <h3 class="pt-1 opacity-75 text-subhead-2">{artist}</h3>

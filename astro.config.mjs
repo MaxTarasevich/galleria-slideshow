@@ -17,27 +17,22 @@ export default defineConfig({
     }),
   ],
   build: {
-    assets: 'assets',
+    assets: 'images',
+    format:'file',
   },
-  /*
+  
   vite: {
     build: {
       rollupOptions: {
         output: {
           assetFileNames: (file) => {
-            if (/\.(ttf|otf|woff|woff2)$/.test(file.name)) {
-              return `fonts/${file.name}`
+            if (/\.(ttf|otf|woff|woff2|js|css)$/.test(file.name)) {
+              return `assets/${file.name}`
             }
-            if (/\.(js)$/.test(file.name)) {
-              return `scripts/${file.name}`
-            }
-            if (/\.(css)$/.test(file.name)) {
-              return `styles/${file.name}`
-            }
-            return `images/${file.name}`
+            return `oldImages/${file.name}`
           },
         },
       },
     },
-  },*/
+  },
 })

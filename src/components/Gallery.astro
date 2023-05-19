@@ -3,9 +3,6 @@ import data from '../data/data.json'
 import Container from './Container.astro'
 import GalleryCard from './GalleryCard.astro'
 
-/*const galleryRows = [
-  50, 80, 57, 50, 68, 56, 100, 50, 84, 52, 105, 86, 52, 66, 68,
-]*/
 const galleryRows = [
   'row-span-50 lg:col-start-1',
   'row-span-80 lg:col-start-2',
@@ -32,6 +29,7 @@ const galleryRows = [
     {
       data.map((card, index) => (
         <GalleryCard
+          link={card.name.replaceAll(' ','-').toLowerCase()}
           className={galleryRows[index]}
           artist={card.artist.name}
           gallery={card.images.gallery}
