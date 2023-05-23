@@ -25,25 +25,26 @@ const artistFolder = artist.image.split('/')[2]
     <Container
       className="relative xl:pt-24 sm:pt-10 pt-6 flex flex-wrap xl:flex-row items-center flex-col sm:justify-between justify-center"
     >
-      <div class="xl:self-auto sm:self-start xl:ml-0">
+      <div class="xl:self-auto xl:ml-0 sm:self-start sm:w-auto w-full">
         <Picture
-          class="xl:w-[475px] lg:w-[600px] sm:w-[475px] w-[327px] sm:h-[560px] h-[280px] object-cover"
+          class="xl:w-[475px] lg:w-[600px] sm:w-[475px] w-full sm:h-[560px] h-[280px] object-cover"
           src={import(`../assets/${folder}/${src}.jpg`)}
           alt={name}
           widths={[475, 327]}
           sizes="(max-width:640px) 327px,(min-width:640px) 475px"
         />
       </div>
-      <div class="xl:max-w-[445px] sm:static relative">
+      <div class="xl:max-w-[445px]">
         <div
-          class="absolute desktop:left-[410px] xl:left-[27%] xl:top-24 sm:top-10 top-6 sm:right-10 pl-[65px] pb-[67px] max-w-[445px] bg-white z-10"
+          class="sm:absolute relative desktop:left-[410px] xl:left-[27%] xl:top-24 sm:top-10 -top-12 sm:right-10
+           sm:pl-[65px] sm:pb-[67px] sm:p-0 p-6 max-w-[445px] bg-white z-10"
         >
           <h1 class="sm:text-heading-1 text-heading-2 max-w-[315px]">{name}</h1>
           <h3 class="sm:mt-6 mt-2 text-subhead-1 text-darkGrey">
             {artist.name}
           </h3>
           <div
-            class="absolute xl:-bottom-96 sm:-bottom-32 xl:left-[42%] xl:right-auto md:right-12 right-1 desktop:left-[90px]"
+            class="absolute xl:top-[496px] sm:-bottom-32 -bottom-16 desktop:left-[90px] xl:left-[42%] sm:left-auto left-4 xl:right-auto md:right-12 sm:right-1 "
           >
             <Picture
               class="w-16 sm:w-32 h-16 sm:h-32 object-cover"
@@ -56,13 +57,14 @@ const artistFolder = artist.image.split('/')[2]
         </div>
 
         <div
-          class="absolute xl:top-24 sm:top-[670px] xl:right-0 xl:left-auto md:left-[12%] sm:right-auto right-6 -z-10 sm:text-display text-displayMob text-lightGrey"
+          class="sm:absolute xl:top-24 sm:top-[670px] xl:right-6 sm:right-auto right-6 xl:left-auto md:left-[12%] 
+           -z-10 sm:text-display text-displayMob text-lightGrey sm:text-left text-right"
         >
           {year}
         </div>
 
         <p
-          class="xl:mt-28 xl:mr-32 sm:mt-36 mt-40 xl:mb-20 sm:mb-10 mb-16 xl:max-w-[350px] sm:max-w-lg text-body text-darkGrey"
+          class="xl:mt-28 xl:mr-32 sm:mt-36 -mt-5 xl:mb-20 sm:mb-10 mb-16 xl:max-w-[350px] sm:max-w-lg text-body text-darkGrey"
         >
           {description}
         </p>
