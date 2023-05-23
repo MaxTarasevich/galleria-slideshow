@@ -2,9 +2,11 @@
 import Layout from '../layouts/Layout.astro'
 import data from '../data/data.json'
 import Container from '../components/Container.astro'
-import { Picture } from '@astrojs/image/components'
+import { Picture, Image } from '@astrojs/image/components'
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
+
+import view from '../assets/shared/icon-view-image.svg'
 
 export function getStaticPaths() {
   return data.map((item, index) => ({
@@ -23,12 +25,12 @@ const artistFolder = artist.image.split('/')[2]
 ---
 
 <Layout>
-  <Header slideshow={true}/>
+  <Header slideshow={true} />
   <main>
     <Container
       className="relative xl:pt-24 sm:pt-10 pt-6 flex flex-wrap xl:flex-row items-center flex-col sm:justify-between justify-center"
     >
-      <div class="xl:self-auto xl:ml-0 sm:self-start sm:w-auto w-full">
+      <div class="relative xl:self-auto xl:ml-0 sm:self-start sm:w-auto w-full">
         <Picture
           class="xl:w-[475px] lg:w-[600px] sm:w-[475px] w-full sm:h-[560px] h-[280px] object-cover"
           src={import(`../assets/${folder}/${src}.jpg`)}
@@ -36,10 +38,14 @@ const artistFolder = artist.image.split('/')[2]
           widths={[475, 327]}
           sizes="(max-width:640px) 327px,(min-width:640px) 475px"
         />
+        <div class="absolute sm:bottom-4 sm:top-auto top-4 left-4 flex px-4 py-[14px] text-view text-white bg-white bg-opacity-25 cursor-pointer">
+          <Image class="mr-[14px]" src={view} alt="full screen button" />
+          VIEW IMAGE
+        </div>
       </div>
       <div class="xl:max-w-[445px]">
         <div
-          class="sm:absolute relative desktop:left-[410px] xl:left-[27%] xl:top-24 sm:top-10 -top-12 sm:right-10 sm:pl-[65px] sm:pb-[67px] sm:p-0 p-6 max-w-[445px] bg-white z-10"
+          class="sm:absolute relative desktop:left-[410px] xl:left-[27%] xl:top-24 sm:top-10 -top-12 sm:right-10 sm:pl-[65px] sm:pb-[67px] sm:p-0 p-6 sm:max-w-[445px] max-w-[280px] bg-white z-10"
         >
           <h1 class="sm:text-heading-1 text-heading-2 max-w-[315px]">{name}</h1>
           <h3 class="sm:mt-6 mt-2 text-subhead-1 text-darkGrey">
@@ -79,5 +85,5 @@ const artistFolder = artist.image.split('/')[2]
     </Container>
   </main>
 
-  <Footer name={name} artist={artist.name} index={index}/>
+  <Footer name={name} artist={artist.name} index={index} />
 </Layout>

@@ -84,6 +84,14 @@ module.exports = {
           fontWeight: '700',
         },
       ],
+      view: [
+        '0.625rem',
+        {
+          lineHeight: '1.2',
+          letterSpacing: '2.14px',
+          fontWeight: '700',
+        },
+      ]
     },
     extend: {
       fontFamily: {

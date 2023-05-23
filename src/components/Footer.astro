@@ -15,11 +15,10 @@ interface Props {
 const { name, artist, index } = Astro.props
 
 const links = data.map((link) => link.name.replaceAll(' ', '-').toLowerCase())
-const width = `${100 / links.length * (index + 1)}`
+const width = `${(100 / links.length) * (index + 1)}`
 ---
 
 <footer class="mt-32">
-  
   <div class="h-px bg-lightGrey">
     <div class="h-px bg-black" style={`width:${width}%;`}></div>
   </div>
@@ -49,12 +48,13 @@ const width = `${100 / links.length * (index + 1)}`
         class={`${
           index == links.length - 1 ? 'opacity-20 pointer-events-none' : ''
         }`}
-        ><Image
+      >
+        <Image
           class="sm:w-6 w-4 sm:h-6 h-4"
           src={nextButton}
           alt=" next button"
-        /></a
-      >
+        />
+      </a>
     </div>
   </Container>
 </footer>
