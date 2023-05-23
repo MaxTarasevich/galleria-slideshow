@@ -1,0 +1,60 @@
+---
+import backButton from '../assets/shared/icon-back-button.svg'
+import nextButton from '../assets/shared/icon-next-button.svg'
+
+import { Image } from '@astrojs/image/components'
+import Container from './Container.astro'
+
+import data from '../data/data.json'
+
+interface Props {
+  name: string
+  artist: string
+  index: number
+}
+const { name, artist, index } = Astro.props
+
+const links = data.map((link) => link.name.replaceAll(' ', '-').toLowerCase())
+const width = `${100 / links.length * (index + 1)}`
+---
+
+<footer class="mt-32">
+  
+  <div class="h-px bg-lightGrey">
+    <div class="h-px bg-black" style={`width:${width}%;`}></div>
+  </div>
+  <Container className=" sm:py-6 py-4 flex justify-between items-center">
+    <div>
+      <h3 class="sm:text-heading-3 text-body">
+        {name}
+      </h3>
+      <h4 class="text-subhead-2 sm:mt-4 mt-2 opacity-75">
+        {artist}
+      </h4>
+    </div>
+
+    <div class="flex">
+      <a
+        href={`${index != 0 ? links[index - 1] : ''}`}
+        class={`${index == 0 ? 'opacity-20 pointer-events-none' : ''}`}
+      >
+        <Image
+          class="sm:w-6 w-4 sm:h-6 h-4 sm:mr-10 mr-6"
+          src={backButton}
+          alt="back button"
+        /></a
+      >
+      <a
+        href={`${index < links.length - 1 ? links[index + 1] : ''}`}
+        class={`${
+          index == links.length - 1 ? 'opacity-20 pointer-events-none' : ''
+        }`}
+        ><Image
+          class="sm:w-6 w-4 sm:h-6 h-4"
+          src={nextButton}
+          alt=" next button"
+        /></a
+      >
+    </div>
+  </Container>
+</footer>

@@ -3,11 +3,15 @@ import { Image } from '@astrojs/image/components'
 import Logo from '../assets/shared/logo.svg'
 import Container from './Container.astro'
 
+interface Props {
+  slideshow: boolean
+}
 
+const { slideshow } = Astro.props
 ---
 
 <header>
-  <Container className="py-10 flex justify-between border-b-[1px] border-grey">
+  <Container className="py-10 flex justify-between items-center border-b-[1px] border-grey">
     <a href="/">
       <Image
         class="w-[113px] h-[32px] lg:w-[170px] lg:h-[48px]"
@@ -16,8 +20,8 @@ import Container from './Container.astro'
       />
     </a>
 
-    <button class="text-link-2 lg:text-link-1 text-darkGrey"
-      >START SLIDESHOW</button
-    >
+    <a href={slideshow ? '/' : '/starry-night'} class="text-link-2 lg:text-link-1 text-darkGrey">
+      {slideshow ? 'STOP SLIDESHOW' : 'START SLIDESHOW'}
+    </a>
   </Container>
 </header>

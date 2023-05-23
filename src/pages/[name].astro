@@ -3,15 +3,17 @@ import Layout from '../layouts/Layout.astro'
 import data from '../data/data.json'
 import Container from '../components/Container.astro'
 import { Picture } from '@astrojs/image/components'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
 
 export function getStaticPaths() {
-  return data.map((item) => ({
+  return data.map((item, index) => ({
     params: { name: item.name.replaceAll(' ', '-').toLowerCase() },
-    props: item,
+    props: { ...item, index },
   }))
 }
 
-const { name, year, description, source, artist, images } = Astro.props
+const { name, year, description, source, artist, images, index } = Astro.props
 
 const src = images.gallery.split('/')[3].split('.jpg')[0]
 const folder = images.gallery.split('/')[2]
@@ -21,6 +23,7 @@ const artistFolder = artist.image.split('/')[2]
 ---
 
 <Layout>
+  <Header slideshow={true}/>
   <main>
     <Container
       className="relative xl:pt-24 sm:pt-10 pt-6 flex flex-wrap xl:flex-row items-center flex-col sm:justify-between justify-center"
@@ -36,15 +39,14 @@ const artistFolder = artist.image.split('/')[2]
       </div>
       <div class="xl:max-w-[445px]">
         <div
-          class="sm:absolute relative desktop:left-[410px] xl:left-[27%] xl:top-24 sm:top-10 -top-12 sm:right-10
-           sm:pl-[65px] sm:pb-[67px] sm:p-0 p-6 max-w-[445px] bg-white z-10"
+          class="sm:absolute relative desktop:left-[410px] xl:left-[27%] xl:top-24 sm:top-10 -top-12 sm:right-10 sm:pl-[65px] sm:pb-[67px] sm:p-0 p-6 max-w-[445px] bg-white z-10"
         >
           <h1 class="sm:text-heading-1 text-heading-2 max-w-[315px]">{name}</h1>
           <h3 class="sm:mt-6 mt-2 text-subhead-1 text-darkGrey">
             {artist.name}
           </h3>
           <div
-            class="absolute xl:top-[496px] sm:-bottom-32 -bottom-16 desktop:left-[90px] xl:left-[42%] sm:left-auto left-4 xl:right-auto md:right-12 sm:right-1 "
+            class="absolute xl:top-[496px] sm:-bottom-32 -bottom-16 desktop:left-[90px] xl:left-[42%] sm:left-auto left-4 xl:right-auto md:right-12 sm:right-1"
           >
             <Picture
               class="w-16 sm:w-32 h-16 sm:h-32 object-cover"
@@ -57,8 +59,7 @@ const artistFolder = artist.image.split('/')[2]
         </div>
 
         <div
-          class="sm:absolute xl:top-24 sm:top-[670px] xl:right-6 sm:right-auto right-6 xl:left-auto md:left-[12%] 
-           -z-10 sm:text-display text-displayMob text-lightGrey sm:text-left text-right"
+          class="sm:absolute xl:top-24 sm:top-[670px] xl:right-6 sm:right-auto right-6 xl:left-auto md:left-[12%] -z-10 sm:text-display text-displayMob text-lightGrey sm:text-left text-right"
         >
           {year}
         </div>
@@ -77,5 +78,6 @@ const artistFolder = artist.image.split('/')[2]
       </div>
     </Container>
   </main>
-  <footer class="py-10">params</footer>
+
+  <Footer name={name} artist={artist.name} index={index}/>
 </Layout>
