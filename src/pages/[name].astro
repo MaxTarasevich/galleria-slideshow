@@ -32,30 +32,33 @@ const artistFolder = artist.image.split('/')[2]
     >
       <div class="relative xl:self-auto xl:ml-0 sm:self-start sm:w-auto w-full">
         <Picture
-          class="xl:w-[475px] lg:w-[600px] sm:w-[475px] w-full sm:h-[560px] h-[280px] object-cover"
+          class="xl:w-[475px] lg:w-[600px] sm:w-[475px] w-full sm:aspect-auto aspect-[7/6] sm:h-[560px] object-cover shadow-md shadow-black"
           src={import(`../assets/${folder}/${src}.jpg`)}
           alt={name}
           widths={[475, 327]}
           sizes="(max-width:640px) 327px,(min-width:640px) 475px"
         />
-        <div class="absolute sm:bottom-4 sm:top-auto top-4 left-4 flex px-4 py-[14px] text-view text-white bg-white bg-opacity-25 cursor-pointer">
+        <div
+          class="absolute sm:bottom-4 sm:top-auto top-4 left-4 flex px-4 py-[14px] text-view text-white 
+          bg-white bg-opacity-25 cursor-pointer shadow-sm shadow-grey"
+        >
           <Image class="mr-[14px]" src={view} alt="full screen button" />
           VIEW IMAGE
         </div>
       </div>
       <div class="xl:max-w-[445px]">
         <div
-          class="sm:absolute relative desktop:left-[410px] xl:left-[27%] xl:top-24 sm:top-10 -top-12 sm:right-10 sm:pl-[65px] sm:pb-[67px] sm:p-0 p-6 sm:max-w-[445px] max-w-[280px] bg-white z-10"
+          class="bg-white shadow-md sm:absolute relative desktop:left-[410px] xl:left-[27%] xl:top-24 sm:top-10 -top-12 sm:right-10 sm:pl-[65px] sm:pb-[67px] sm:p-0 p-6 sm:max-w-[445px] max-w-[280px] z-10"
         >
           <h1 class="sm:text-heading-1 text-heading-2 max-w-[315px]">{name}</h1>
           <h3 class="sm:mt-6 mt-2 text-subhead-1 text-darkGrey">
             {artist.name}
           </h3>
           <div
-            class="absolute xl:top-[496px] sm:-bottom-32 -bottom-16 desktop:left-[90px] xl:left-[42%] sm:left-auto left-4 xl:right-auto md:right-12 sm:right-1"
+            class="absolute xl:top-[496px] sm:-bottom-[134px] -bottom-[70px] desktop:left-[90px] xl:left-[42%] sm:left-auto left-4 xl:right-auto md:right-12 sm:right-1"
           >
             <Picture
-              class="w-16 sm:w-32 h-16 sm:h-32 object-cover"
+              class="w-16 sm:w-32 h-16 sm:h-32 object-cover shadow-md shadow-darkGrey"
               src={import(`../assets/${artistFolder}/${artistSrc}.jpg`)}
               alt={name}
               widths={[475, 327]}
@@ -76,7 +79,7 @@ const artistFolder = artist.image.split('/')[2]
           {description}
         </p>
         <a
-          class="text-link-2 text-darkGrey underline decoration-1 uppercase"
+          class="text-link-2 text-darkGrey hover:text-black transition-all duration-700 underline decoration-1 uppercase"
           href={source}
           target="_blank"
           rel="noopener noreferrer">Go to sourse</a

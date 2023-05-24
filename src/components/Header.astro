@@ -11,8 +11,10 @@ const { slideshow } = Astro.props
 ---
 
 <header>
-  <Container className="py-10 flex justify-between items-center border-b-[1px] border-grey">
-    <a href="/">
+  <Container
+    className="py-10 flex justify-between items-center border-b-[1px] border-grey"
+  >
+    <a href="/" class="hover:animate-pulse">
       <Image
         class="w-[113px] h-[32px] lg:w-[170px] lg:h-[48px]"
         src={Logo}
@@ -20,7 +22,10 @@ const { slideshow } = Astro.props
       />
     </a>
 
-    <a href={slideshow ? '/' : '/starry-night'} class="text-link-2 lg:text-link-1 text-darkGrey">
+    <a
+      href={slideshow ? '/' : '/starry-night'}
+      class="text-link-2 lg:text-link-1 text-darkGrey hover:animate-pulse"
+    >
       {slideshow ? 'STOP SLIDESHOW' : 'START SLIDESHOW'}
     </a>
   </Container>
