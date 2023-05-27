@@ -7,6 +7,7 @@ import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 
 import view from '../assets/shared/icon-view-image.svg'
+import Modal from '../components/Modal.astro'
 
 export function getStaticPaths() {
   return data.map((item, index) => ({
@@ -39,8 +40,8 @@ const artistFolder = artist.image.split('/')[2]
           sizes="(max-width:640px) 327px,(min-width:640px) 475px"
         />
         <div
-          class="absolute sm:bottom-4 sm:top-auto top-4 left-4 flex px-4 py-[14px] text-view text-white 
-          bg-white bg-opacity-25 cursor-pointer shadow-sm shadow-grey"
+          id="openModal"
+          class="absolute sm:bottom-4 sm:top-auto top-4 left-4 flex px-4 py-[14px] text-view text-white bg-white bg-opacity-25 cursor-pointer shadow-sm shadow-grey"
         >
           <Image class="mr-[14px]" src={view} alt="full screen button" />
           VIEW IMAGE
@@ -89,4 +90,26 @@ const artistFolder = artist.image.split('/')[2]
   </main>
 
   <Footer name={name} artist={artist.name} index={index} />
+  <Modal name={name} src={import(`../assets/${folder}/${src}.jpg`)} open />
 </Layout>
+
+<script>
+  const openModalButton = document.getElementById('openModal')
+  const closeModalButton = document.getElementById('closeModal')
+  const modal = document.getElementById('popup-modal')
+
+  const body = document.querySelector('body')
+
+  openModalButton.addEventListener('click', () => {
+    modal.classList.remove('opacity-0', 'translate-x-[200%]', '-scale-x-150')
+    const padding = window.screen.width - body.scrollWidth
+    body.style.overflow = 'hidden'
+    body.style.paddingRight = `${padding}px`
+  })
+
+  closeModalButton.addEventListener('click', () => {
+    modal.classList.add('opacity-0', 'translate-x-[200%]', '-scale-x-150')
+    body.style.overflow = ''
+    body.style.paddingRight = ''
+  })
+</script>
