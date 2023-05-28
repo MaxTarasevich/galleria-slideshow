@@ -27,11 +27,18 @@ const { src, name, open } = Astro.props
 -->
 <div
   id="popup-modal"
-  class="fixed top-0 left-0 right-0 h-screen z-50 opacity-0 translate-x-[200%] -scale-x-150 transition-all duration-700
-   p-4 overflow-x-hidden overflow-y-scroll bg-black bg-opacity-75"
+  class="fixed py-10 top-0 left-0 right-0 h-screen z-50 opacity-0 translate-x-[200%] transition-all duration-500 p-4 overflow-x-hidden overflow-y-scroll bg-black bg-opacity-75"
 >
-  <div class="mx-auto flex justify-center items-center flex-col">
-    <button id="closeModal" class="mb-10 uppercase text-body tracking-[3px] text-white"> Close</button>
-    <Image src={src} alt={name} />
+  <div class="mx-auto flex justify-center">
+    <div class="text-right">
+      <button
+        id="closeModal"
+        class="mb-10 uppercase text-body tracking-[3px] text-white hover:animate-pulse"
+      >
+        Close
+      </button>
+
+      <Image src={src} alt={name} />
+    </div>
   </div>
 </div>

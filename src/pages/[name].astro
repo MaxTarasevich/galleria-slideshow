@@ -101,14 +101,14 @@ const artistFolder = artist.image.split('/')[2]
   const body = document.querySelector('body')
 
   openModalButton.addEventListener('click', () => {
-    modal.classList.remove('opacity-0', 'translate-x-[200%]', '-scale-x-150')
+    modal.classList.remove('opacity-0', 'translate-x-[200%]',)
     const padding = window.screen.width - body.scrollWidth
     body.style.overflow = 'hidden'
     body.style.paddingRight = `${padding}px`
   })
 
   closeModalButton.addEventListener('click', () => {
-    modal.classList.add('opacity-0', 'translate-x-[200%]', '-scale-x-150')
+    modal.classList.add('opacity-0', 'translate-x-[200%]',)
     body.style.overflow = ''
     body.style.paddingRight = ''
   })
