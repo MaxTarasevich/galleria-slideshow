@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" type="image/x-icon" href="/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="./favicon-32x32.png">
     <meta name="generator" content="Astro v2.3.1">
     <title>Galleria</title>
   <link rel="stylesheet" href="/assets/_name_.css" /><script type="module">const d=document.getElementById("openModal"),n=document.getElementById("closeModal"),e=document.getElementById("popup-modal"),t=document.querySelector("body");d.addEventListener("click",()=>{e.classList.remove("opacity-0","translate-x-[200%]");const o=window.screen.width-t.scrollWidth;t.style.overflow="hidden",t.style.paddingRight=`${o}px`});n.addEventListener("click",()=>{e.classList.add("opacity-0","translate-x-[200%]"),t.style.overflow="",t.style.paddingRight=""});
@@ -13,11 +13,11 @@
   <header>
   <div class="px-6 sm:px-10 desktop:px-0 xl:max-w-[1360px] mx-auto py-10 flex justify-between items-center border-b-[1px] border-grey">
   
-    <a href="/" class="hover:animate-pulse">
+    <a href="./" class="hover:animate-pulse">
       <img class="w-[113px] h-[32px] lg:w-[170px] lg:h-[48px]" alt="Logo" width="170" height="48" src="/images/logo_22jDdt.svg" loading="lazy" decoding="async">
     </a>
 
-    <a href="/" class="text-link-2 lg:text-link-1 text-darkGrey hover:animate-pulse">
+    <a href="./" class="text-link-2 lg:text-link-1 text-darkGrey hover:animate-pulse">
       STOP SLIDESHOW
     </a>
   
@@ -79,30 +79,16 @@
     </div>
 
     <div class="flex">
-      <a href="van-gogh-self-portrait" class=" hover:animate-pulse">
+      <a href="./van-gogh-self-portrait" class=" hover:animate-pulse">
         <img class="sm:w-6 w-4 sm:h-6 h-4 sm:mr-10 mr-6" alt="back button" width="26" height="24" src="/images/icon-back-button_Z1fMoIG.svg" loading="lazy" decoding="async"></a>
-      <a href="lady-with-an-ermine" class=" hover:animate-pulse">
+      <a href="./lady-with-an-ermine" class=" hover:animate-pulse">
         <img class="sm:w-6 w-4 sm:h-6 h-4" alt=" next button" width="26" height="24" src="/images/icon-next-button_1LFXdQ.svg" loading="lazy" decoding="async">
       </a>
     </div>
   
 </div>
 </footer>
-  <!-- 
-<div
-  class="fixed py-10 top-0 left-0 right-0 h-full overflow-y-scroll z-[1000] flex justify-center items-center bg-black bg-opacity-75"
->
-  <div>
-    <div class="text-right mb-10">
-      <button class="uppercase text-body tracking-[3px] text-white"
-        >close</button
-      >
-    </div>
-
-  
-  </div>
-</div>
---><div id="popup-modal" class="fixed py-10 top-0 left-0 right-0 h-screen z-50 opacity-0 translate-x-[200%] transition-all duration-500 p-4 overflow-x-hidden overflow-y-scroll bg-black bg-opacity-75">
+  <div id="popup-modal" class="fixed py-10 top-0 left-0 right-0 h-screen z-50 opacity-0 translate-x-[200%] transition-all duration-500 p-4 overflow-x-hidden overflow-y-scroll bg-black bg-opacity-75">
   <div class="mx-auto flex justify-center">
     <div class="text-right">
       <button id="closeModal" class="mb-10 uppercase text-body tracking-[3px] text-white hover:animate-pulse">
