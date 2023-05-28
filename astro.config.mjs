@@ -6,6 +6,8 @@ import image from '@astrojs/image'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://github.com/MaxTarasevich.io',
+  base: '/galleria-slideshow',
   integrations: [
     tailwind({
       config: {
@@ -18,9 +20,9 @@ export default defineConfig({
   ],
   build: {
     assets: 'images',
-    format:'file',
+    format: 'file',
   },
-  
+
   vite: {
     build: {
       rollupOptions: {
