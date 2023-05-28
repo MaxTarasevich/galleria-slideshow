@@ -34,7 +34,7 @@ const width = `${(100 / links.length) * (index + 1)}`
 
     <div class="flex">
       <a
-        href={`${index != 0 ? links[index - 1] : ''}`}
+        href={`./${index != 0 ? links[index - 1] : ''}`}
         class={`${
           index == 0 ? 'opacity-20 pointer-events-none' : ''
         } hover:animate-pulse`}
@@ -46,7 +46,7 @@ const width = `${(100 / links.length) * (index + 1)}`
         /></a
       >
       <a
-        href={`${index < links.length - 1 ? links[index + 1] : ''}`}
+        href={`./${index < links.length - 1 ? links[index + 1] : ''}`}
         class={`${
           index == links.length - 1 ? 'opacity-20 pointer-events-none' : ''
         } hover:animate-pulse`}
