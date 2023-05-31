@@ -28,8 +28,11 @@ export default defineConfig({
       rollupOptions: {
         output: {
           assetFileNames: (file) => {
-            if (/\.(ttf|otf|woff|woff2|js|css)$/.test(file.name)) {
+            if (/\.(ttf|otf|woff|woff2|js)$/.test(file.name)) {
               return `assets/${file.name}`
+            }
+            if (/\.(css)$/.test(file.name)) {
+              return `assets/style.css`
             }
             return `oldImages/${file.name}`
           },
