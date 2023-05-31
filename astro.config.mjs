@@ -6,8 +6,8 @@ import image from '@astrojs/image'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://github.com/MaxTarasevich.io',
-  base: '/galleria-slideshow',
+  site: 'https://github.com/MaxTarasevich.io/galleria-slideshow',
+  base: 'galleria-slideshow',
   integrations: [
     tailwind({
       config: {
